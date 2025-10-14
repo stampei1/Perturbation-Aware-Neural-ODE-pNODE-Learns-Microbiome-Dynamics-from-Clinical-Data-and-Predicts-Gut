@@ -1,0 +1,2 @@
+/admin/software/anaconda/1.11.1/lib/python3.11/site-packages/sklearn/linear_model/_ridge.py:2022: RuntimeWarning: invalid value encountered in divide
+  squared_errors = (c / G_inverse_diag) ** 2

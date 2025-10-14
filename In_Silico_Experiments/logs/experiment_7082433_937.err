@@ -1,0 +1,42 @@
+/home/stampei1/.local/lib/python3.11/site-packages/torch/cuda/__init__.py:182: UserWarning: CUDA initialization: CUDA driver initialization failed, you might not have a CUDA gpu. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() > 0
+Traceback (most recent call last):
+  File "/data1/xavierj/isaac/Neural_ODEs_Paper_Code/automating_in_silico_experiments/run_experiment.py", line 202, in <module>
+    main()
+  File "/data1/xavierj/isaac/Neural_ODEs_Paper_Code/automating_in_silico_experiments/run_experiment.py", line 56, in main
+    glv_validation_rsquared, node_validation_rsquared = train_test_and_validate_models(df_train, df_test, df_validation, perturbations_data_dict, 
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data1/xavierj/isaac/Neural_ODEs_Paper_Code/automating_in_silico_experiments/run_experiment.py", line 70, in train_test_and_validate_models
+    glv_validation_rsquared, _ = MyModels.prediction_scatter_and_r2(glv_model, df_validation, perturbations_data_dict, input_size = numspecies)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data1/xavierj/isaac/Neural_ODEs_Paper_Code/automating_in_silico_experiments/models.py", line 321, in prediction_scatter_and_r2
+    test_y_preds, test_y_true = get_batch_data(test_experiments, model, test_df, perturbations_data_dict)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data1/xavierj/isaac/Neural_ODEs_Paper_Code/automating_in_silico_experiments/models.py", line 258, in get_batch_data
+    t, y0, y_preds, y_true = get_data(experiment_name, model, df_data, perturbations_data_dict)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data1/xavierj/isaac/Neural_ODEs_Paper_Code/automating_in_silico_experiments/models.py", line 236, in get_data
+    y_preds = odeint(model, y0, t).to(device)
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/home/stampei1/.local/lib/python3.11/site-packages/torchdiffeq/_impl/adjoint.py", line 206, in odeint_adjoint
+    ans = OdeintAdjointMethod.apply(shapes, func, y0, t, rtol, atol, method, options, event_fn, adjoint_rtol, adjoint_atol,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stampei1/.local/lib/python3.11/site-packages/torch/autograd/function.py", line 576, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stampei1/.local/lib/python3.11/site-packages/torchdiffeq/_impl/adjoint.py", line 24, in forward
+    ans = odeint(func, y0, t, rtol=rtol, atol=atol, method=method, options=options, event_fn=event_fn)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stampei1/.local/lib/python3.11/site-packages/torchdiffeq/_impl/odeint.py", line 80, in odeint
+    solution = solver.integrate(t)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/stampei1/.local/lib/python3.11/site-packages/torchdiffeq/_impl/solvers.py", line 34, in integrate
+    solution[i] = self._advance(t[i])
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/stampei1/.local/lib/python3.11/site-packages/torchdiffeq/_impl/rk_common.py", line 246, in _advance
+    self.rk_state = self._adaptive_step(self.rk_state)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/stampei1/.local/lib/python3.11/site-packages/torchdiffeq/_impl/rk_common.py", line 284, in _adaptive_step
+    assert t0 + dt > t0, 'underflow in dt {}'.format(dt.item())
+           ^^^^^^^^^^^^
+AssertionError: underflow in dt 3.392122955371919e-15

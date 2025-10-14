@@ -1,0 +1,5 @@
+CUDA is not available. Using CPU.
+Noise: 0.1
+Density: 10
+Training Size: 64
+Number of species: 5
