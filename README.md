@@ -16,9 +16,19 @@ generate_ground_truth_coefficients.py generates the ground truth GLV coefficiets
 
 run_experiment.py loads the generated ground truth coeffients, and then runs a pNODE vs. GLV experiment according to the args it is given, including training data noise, training data sampling density (out of 48 total per trajectory), training size, which is the total number of trajectories in the training. The results of the experiemnt, which are test R^2 values, are recorded and saved as .npy files in data/experimental_results.
 
-models.py contains the code for the GLV and pNODE models, as well as functions for batching, evaluating performance
+models.py contains the code for the GLV and pNODE models, as well as functions for batching, loss, and evaluating performance. 
 
+train_node_to_make_predicted_vs_true_plots.py trains and saves instances of the pNODE model in the current directory for different test loss values, to be used for plotting later.
 
+make_predicted_vs_true_plots.ipynb has code to load a trained model (trained in train_node_to_make_predicted_vs_true_plots.py) and then plot model predictions against the ground truth data. 
+
+trajectory_schematics.py makes schematics of the training data under different conditions.
+
+make_args.py creates a text file with 1000s of combinations of training data condition arguments for run_experiment.py, in the file args.txt. 
+
+job_array.sh is a SLURM shell script that runs copies of 'run_experiment.py' in parallel with args from args.txt. You can modify the script to run on your own cluster. 
+
+## Clinical Data Experiments 
 
 
 To visualize the predictions of the trained pNODE and GLV models, go to predicting_dynamics_figures.ipynb. To look at the infection prediction and intestinal domination prediction code go to predicting_bloodstream_infections_and_intestinal_dominations.ipynb
