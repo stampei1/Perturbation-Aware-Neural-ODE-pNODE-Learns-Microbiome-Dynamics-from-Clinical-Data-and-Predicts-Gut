@@ -8,3 +8,16 @@ Clinical_Data_Experiments contains the clinical data portion of the paper. In_Si
 To quickly load and visualize the predictions of the trained clinical model, go to Clinical_Data_Experiments/predicting_dynamics_figures.ipynb, run the first cell to load the required models and packages, and then run the cell with the function make_prediction_plot_without_reseting(). This function will show model predictions for any given patient and starting sample.
 
 To do the same for the in silico experiments, go to In_Silico_Experiments/make_predicted_vs_true_plots.ipynb, and run make_plot_with_errors() 
+
+
+
+## In Silico Experiments
+
+generate_ground_truth_coefficients.py generates the ground truth GLV coefficiets for a series of in silico experiments by sampling from a multivariate normal, and saves them as .npy files in the same directory.
+
+run_experiment.py loads the generated ground truth coeffients, and then runs a pNODE vs. GLV experiment according to the args it is given, including training data noise, training data sampling density (out of 48 total per trajectory), training size, which is the total number of trajectories in the training. The results of the experiemnt, which are test R^2 values, are recorded and saved as .npy files in data/experimental_results
+
+
+
+
+To visualize the predictions of the trained pNODE and GLV models, go to predicting_dynamics_figures.ipynb. To look at the infection prediction and intestinal domination prediction code go to predicting_bloodstream_infections_and_intestinal_dominations.ipynb
