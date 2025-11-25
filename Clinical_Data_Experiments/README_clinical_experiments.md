@@ -1,0 +1,1 @@
+To visualize the predictions of the trained pNODE and GLV models, go to predicting_dynamics_figures.ipynb. To look at the infection prediction and intestinal domination prediction code go to predicting_bloodstream_infections_and_intestinal_dominations.ipynb
