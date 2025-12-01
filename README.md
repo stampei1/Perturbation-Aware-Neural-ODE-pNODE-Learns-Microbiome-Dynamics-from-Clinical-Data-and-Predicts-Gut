@@ -1,5 +1,9 @@
 # Perturbation-Aware Neural ODE (pNODE) Learns Microbiome Dynamics from Clinical Data and Predicts Gut-Borne Bloodstream Infections in Patients Receiving Cancer Treatment
 
+
+https://www.biorxiv.org/content/10.1101/2025.11.26.690798v1
+
+
 Requires python 3.12
 
 Clinical_Data_Experiments contains the clinical data portion of the paper. In_Silico_Experiments contains the in silico portion. 
